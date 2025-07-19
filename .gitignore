@@ -1,0 +1,24 @@
+# Backup files
+*~
+*.backup
+*_old
+*_new
+*_fixed
+
+# macOS
+.DS_Store
+
+# Temporary files
+*.tmp
+*.log
+
+# Editor files
+.vscode/
+*.swp
+*.swo
+
+# Specific backup files from configuration iterations
+sketchybarrc_*
+
+# Git initialization script (only needed once)
+init-git.sh
