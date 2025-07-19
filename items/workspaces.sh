@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Add aerospace workspaces with clean styling - using item type instead of space type
-for workspace in $(aerospace list-workspaces --all); do
+# Add specific home row workspaces only
+for workspace in A S D F G; do
   sketchybar --add item workspace.$workspace left \
              --set workspace.$workspace icon=$workspace \
                                         icon.color=$WHITE \
