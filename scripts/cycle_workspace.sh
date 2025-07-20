@@ -4,7 +4,7 @@
 current=$(aerospace list-workspaces --focused)
 
 # Define the workspace order
-workspaces=("A" "S" "D" "F" "G")
+workspaces=("1" "2" "3" "4" "5")
 
 # Find current workspace index
 current_index=-1
@@ -22,7 +22,7 @@ if [[ "$direction" == "next" ]]; then
     # Move to next workspace
     if [[ $current_index -eq -1 ]] || [[ $current_index -eq 4 ]]; then
         # If not found or at last workspace, go to first
-        aerospace workspace A
+        aerospace workspace 1
     else
         # Go to next workspace
         next_index=$((current_index + 1))
@@ -32,7 +32,7 @@ elif [[ "$direction" == "prev" ]]; then
     # Move to previous workspace
     if [[ $current_index -eq -1 ]] || [[ $current_index -eq 0 ]]; then
         # If not found or at first workspace, go to last
-        aerospace workspace G
+        aerospace workspace 5
     else
         # Go to previous workspace
         prev_index=$((current_index - 1))

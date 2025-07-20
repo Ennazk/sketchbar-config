@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Add specific home row workspaces only
-for workspace in A S D F G; do
+# Add specific number workspaces only
+for workspace in 1 2 3 4 5; do
   sketchybar --add item workspace.$workspace left \
              --set workspace.$workspace icon=$workspace \
                                         icon.color=$WHITE \
