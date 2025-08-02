@@ -1,11 +1,10 @@
 #!/bin/bash
 
 sketchybar --add item front_app left \
-           --set front_app icon.font="sketchybar-app-font:Regular:16.0" \
-                           icon.color=$WHITE \
-                           label.color=$WHITE \
-                           background.color=$ITEM_BG_COLOR \
-                           background.corner_radius=5 \
-                           background.height=24 \
-                           script="$PLUGIN_DIR/front_app.sh" \
+           --set front_app background.drawing=off \
+                            icon.color=0xffffffff \
+                            icon.font="sketchybar-app-font:Regular:16.0" \
+                            label.color=0xffffffff \
+                            label.font="SF Pro:Semibold:13.0" \
+                            script="$PLUGIN_DIR/front_app.sh"            \
            --subscribe front_app front_app_switched

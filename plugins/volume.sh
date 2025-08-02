@@ -1,31 +1,27 @@
-#!/bin/sh
+#!/bin/bash
 
-# The volume_change event supplies a $INFO variable in which the current volume
-# percentage is passed to the script.
-
+# Get volume level
 if [ "$SENDER" = "volume_change" ]; then
   VOLUME=$INFO
 else
-  widget
   VOLUME=$(osascript -e "output volume of (get volume settings)" 2>/dev/null)
-  if [ "$VOLUME" = "missing value" ] || [ -z "$VOLUME" ]; then
-    # Can't detect volume - hide the widget
-    sketchybar --set $NAME drawing=off
-    exit 0
-  fi
 fi
 
-# Show the widget and update it
+if [ "$VOLUME" = "" ] || [ "$VOLUME" = "missing value" ]; then
+  sketchybar --set $NAME drawing=off
+  exit 0
+fi
+
+# Show the item
 sketchybar --set $NAME drawing=on
 
+# Use reliable SF Pro volume symbols
 case $VOLUME in
-  [6-9][0-9]|100) ICON="􀊩"
-  ;;
-  [3-5][0-9]) ICON="􀊥"
-  ;;
-  [1-9]|[1-2][0-9]) ICON="􀊡"
-  ;;
-  *) ICON="􀊣"
+  [8-9][0-9]|100) ICON="􀊩" ;;  # speaker.wave.3.fill
+  [5-7][0-9]) ICON="􀊧" ;;      # speaker.wave.2.fill
+  [2-4][0-9]) ICON="􀊥" ;;      # speaker.wave.1.fill
+  [1-9]) ICON="􀊡" ;;           # speaker.1.fill
+  *) ICON="􀊣" ;;               # speaker.slash.fill
 esac
 
-sketchybar --set $NAME icon="$ICON" label="$VOLUME%"
+sketchybar --set $NAME icon="$ICON" label=""

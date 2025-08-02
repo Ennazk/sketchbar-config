@@ -5,21 +5,7 @@
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
   'exec-and-forget borders',
-  'exec-and-forget sketchybar',
-  # Launch essential apps
-  'exec-and-forget open -a "Arc"',
-  'exec-and-forget open -a "Visual Studio Code"',
-  'exec-and-forget open -a "iTerm"',
-  'exec-and-forget open -a "Discord"',
-  'exec-and-forget open -a "Messenger"',
-  'exec-and-forget open -a "YouTube Music"',
-  # Add delay to ensure proper workspace assignment
-  'exec-and-forget sleep 3 && sketchybar --reload'
-]
-
-# Notify Sketchybar about workspace change
-exec-on-workspace-change = ['/bin/bash', '-c',
-    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+  'exec-and-forget sketchybar'
 ]
 
 # Start AeroSpace at login
@@ -31,8 +17,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
-# Increased padding to show more of the background windows
-accordion-padding = 80
+accordion-padding = 0
 
 # Possible values: tiles|accordion
 default-root-container-layout = 'tiles'
@@ -73,7 +58,7 @@ automatically-unhide-macos-hidden-apps = false
     inner.vertical =   30
     outer.left =       20
     outer.bottom =     20
-    outer.top =        46
+    outer.top = [{ monitor."Built-in.*" = 20 }, 46]
     outer.right =      20
 
 # 'main' binding mode declaration
@@ -119,9 +104,9 @@ automatically-unhide-macos-hidden-apps = false
     alt-k = 'focus up'
     alt-l = 'focus right'
     
-    # Cycle between windows in the current workspace (left hand only)
-    alt-q = 'focus dfs-prev'
-    alt-w = 'focus dfs-next'
+    # Cycle between windows
+    alt-tab = 'focus dfs-next'
+    alt-shift-tab = 'focus dfs-prev'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
     alt-shift-h = 'move left'
@@ -132,27 +117,6 @@ automatically-unhide-macos-hidden-apps = false
     # See: https://nikitabobko.github.io/AeroSpace/commands#resize
     alt-minus = 'resize smart -50'
     alt-equal = 'resize smart +50'
-
-    # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-    # Number workspace bindings
-    alt-1 = 'workspace 1'  # Main work (VS Code, Terminal)
-    alt-2 = 'workspace 2'  # Browser (Arc)
-    alt-3 = 'workspace 3'  # Communication (Discord, Messenger)
-    alt-4 = 'workspace 4'  # Notes (Notion)
-    alt-5 = 'workspace 5'  # Music (YouTube Music)
-
-    # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-    # Move windows to number workspaces
-    alt-shift-1 = 'move-node-to-workspace 1'  # Main work
-    alt-shift-2 = 'move-node-to-workspace 2'  # Browser
-    alt-shift-3 = 'move-node-to-workspace 3'  # Communication
-    alt-shift-4 = 'move-node-to-workspace 4'  # Notes
-    alt-shift-5 = 'move-node-to-workspace 5'  # Music
-
-    # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-    # Cycle through workspaces in the correct order: 1 -> 2 -> 3 -> 4 -> 5 -> 1...
-    alt-tab = 'exec-and-forget /Users/yassir/.config/sketchybar/scripts/cycle_workspace.sh next'
-    alt-shift-tab = 'exec-and-forget /Users/yassir/.config/sketchybar/scripts/cycle_workspace.sh prev'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-shift-semicolon = 'mode service'
@@ -176,124 +140,6 @@ automatically-unhide-macos-hidden-apps = false
     down = 'volume down'
     up = 'volume up'
     shift-down = ['volume set 0', 'mode main']
-
-# Automatic app workspace assignment
-# Browser apps go to workspace 2
-[[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser'  # Arc
-run = 'move-node-to-workspace 2'
-
-[[on-window-detected]]
-if.app-id = 'com.google.Chrome'
-run = 'move-node-to-workspace 2'
-
-[[on-window-detected]]
-if.app-id = 'org.mozilla.firefox'
-run = 'move-node-to-workspace 2'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Safari'
-run = 'move-node-to-workspace 2'
-
-# Main work apps go to workspace 1
-[[on-window-detected]]
-if.app-id = 'com.microsoft.VSCode'
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.dt.Xcode'
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
-if.app-id = 'com.github.atom'
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
-if.app-id = 'com.sublimetext.4'
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Terminal'
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
-if.app-id = 'com.googlecode.iterm2'
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
-if.app-id = 'com.sequelpro.SequelPro'
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
-if.app-id = 'com.sequel-ace.sequel-ace'
-run = 'move-node-to-workspace 1'
-
-# Communication apps go to workspace 3
-[[on-window-detected]]
-if.app-id = 'com.hnc.Discord'
-run = 'move-node-to-workspace 3'
-
-[[on-window-detected]]
-if.app-id = 'com.facebook.archon'  # Messenger
-run = 'move-node-to-workspace 3'
-
-[[on-window-detected]]
-if.app-id = 'com.tinyspeck.slackmacgap'  # Slack
-run = 'move-node-to-workspace 3'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.MobileSMS'  # Messages
-run = 'move-node-to-workspace 3'
-
-[[on-window-detected]]
-if.app-id = 'org.whispersystems.signal-desktop'  # Signal
-run = 'move-node-to-workspace 3'
-
-[[on-window-detected]]
-if.app-id = 'ru.keepcoder.Telegram'  # Telegram
-run = 'move-node-to-workspace 3'
-
-[[on-window-detected]]
-if.app-id = 'net.whatsapp.WhatsApp'  # WhatsApp
-run = 'move-node-to-workspace 3'
-
-# Notes apps go to workspace 4
-[[on-window-detected]]
-if.app-id = 'notion.id'  # Notion
-run = 'move-node-to-workspace 4'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Notes'
-run = 'move-node-to-workspace 4'
-
-[[on-window-detected]]
-if.app-id = 'com.bear-writer.BearStaticAction'  # Bear
-run = 'move-node-to-workspace 4'
-
-[[on-window-detected]]
-if.app-id = 'com.obsidian.obsidian'  # Obsidian
-run = 'move-node-to-workspace 4'
-
-# Music apps go to workspace 5
-[[on-window-detected]]
-if.app-id = 'com.google.YouTubeMusic'
-run = 'move-node-to-workspace 5'
-
-[[on-window-detected]]
-if.app-id = 'com.spotify.client'
-run = 'move-node-to-workspace 5'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Music'
-run = 'move-node-to-workspace 5'
-
-[[on-window-detected]]
-if.app-id = 'com.netease.163music'
-run = 'move-node-to-workspace 5'
-
-[[on-window-detected]]
-if.app-id = 'com.soundcloud.desktop'
-run = 'move-node-to-workspace 5'
 
 # Common floating apps (keep these floating)
 [[on-window-detected]]
