@@ -1,34 +1,33 @@
 #!/bin/bash
 
-# Only show DND icon when actually in focus mode
-# Hide it completely when not in DND
+# More responsive DND detection using Control Center Focus Modes
+DND_VISIBLE=$(defaults read com.apple.controlcenter "NSStatusItem Visible FocusModes" 2>/dev/null || echo "0")
 
-# Try to detect if DND/Focus is actually active
-DND_ACTIVE=false
-
-# Method 1: Check Focus modes via shortcuts (more reliable)
-if command -v shortcuts &> /dev/null; then
-    # This will only work if user has set up a shortcut to check focus status
-    FOCUS_CHECK=$(osascript -e 'tell application "System Events" to get the name of every process whose name contains "Focus"' 2>/dev/null)
-    if [[ -n "$FOCUS_CHECK" ]]; then
-        DND_ACTIVE=true
-    fi
-fi
-
-# Method 2: Check system DND database (fallback)
-if [ "$DND_ACTIVE" = false ]; then
-    if [ -f ~/Library/DoNotDisturb/DB/Assertions.json ]; then
-        # Check if there are active assertions
-        ASSERTIONS=$(cat ~/Library/DoNotDisturb/DB/Assertions.json 2>/dev/null | jq -r '.data[0].storeAssertionRecords | length' 2>/dev/null || echo "0")
-        if [ "$ASSERTIONS" -gt 0 ] 2>/dev/null; then
-            DND_ACTIVE=true
+if [ "$DND_VISIBLE" = "1" ]; then
+    # Focus modes are enabled in Control Center
+    # Try to detect if a focus mode is currently active
+    
+    # Method 1: Check if there's an active focus mode by looking at notification center prefs
+    FOCUS_ACTIVE=$(defaults read com.apple.ncprefs dnd_prefs 2>/dev/null | grep -q "userPref" && echo "1" || echo "0")
+    
+    # Method 2: Alternative check using plutil (more reliable)
+    if [ "$FOCUS_ACTIVE" = "0" ]; then
+        DND_PREFS=$(plutil -extract dnd_prefs raw ~/Library/Preferences/com.apple.ncprefs.plist 2>/dev/null)
+        if [ -n "$DND_PREFS" ] && [ "$DND_PREFS" != "" ]; then
+            # Check if any focus setting indicates active state
+            FOCUS_ACTIVE=$(echo "$DND_PREFS" | base64 -d | plutil -p - 2>/dev/null | grep -q '"dndDisplaySleep" => 1' && echo "1" || echo "0")
         fi
     fi
-fi
-
-# Only show the icon when DND is actually active
-if [ "$DND_ACTIVE" = true ]; then
-    sketchybar --set $NAME drawing=on icon.color=0xffffffff
+    
+    # Update icon based on focus state
+    if [ "$FOCUS_ACTIVE" = "1" ]; then
+        # Focus mode is likely active - bright white
+        sketchybar --set $NAME drawing=on icon.color=0xffffffff
+    else
+        # Focus modes enabled but not active - dimmed
+        sketchybar --set $NAME drawing=on icon.color=0x50ffffff
+    fi
 else
+    # Focus modes not enabled in Control Center - hide completely
     sketchybar --set $NAME drawing=off
 fi

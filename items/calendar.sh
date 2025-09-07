@@ -5,5 +5,6 @@ sketchybar --add item calendar right \
                           icon.color=0xffffffff \
                           label.color=0xffffffff \
                           background.drawing=off \
-                          update_freq=30 \
+                          update_freq=1 \
+                          padding_left=5 \
                           script="$PLUGIN_DIR/calendar.sh"

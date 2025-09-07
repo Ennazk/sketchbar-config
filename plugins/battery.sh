@@ -21,8 +21,9 @@ esac
 
 if [[ $CHARGING != "" ]]; then
   ICON="􀢋"
+  SEPARATOR=" ｜ "
+  STATUS="Charging"
+  sketchybar --set $NAME icon="$ICON" label="$(printf "%s%s%s " "$PERCENTAGE%" "$SEPARATOR" "$STATUS")"
+else
+  sketchybar --set $NAME icon="$ICON" label="$(printf "%s%% " "$PERCENTAGE")"
 fi
-
-# The item invoking this script (name $NAME) will get its icon and label
-# updated with the current battery status
-sketchybar --set $NAME icon="$ICON" label="${PERCENTAGE}%"

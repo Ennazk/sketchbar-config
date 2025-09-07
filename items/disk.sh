@@ -5,6 +5,7 @@ sketchybar --add item disk right \
                       icon=􀤂 \
                       icon.color=0xffffffff \
                       label.color=0xffffffff \
+                      label.width=40 \
                       background.drawing=off \
                       script="$PLUGIN_DIR/disk.sh" \
            --subscribe disk system_woke

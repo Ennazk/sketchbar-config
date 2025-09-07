@@ -29,4 +29,4 @@ else
 fi
 
 # Update the item
-sketchybar --set $NAME label="${RAM_PERCENTAGE}%"
+sketchybar --set $NAME label="$(printf "%3s%%" "$RAM_PERCENTAGE")"
