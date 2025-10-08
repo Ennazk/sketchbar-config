@@ -7,5 +7,5 @@ CPU_USER=$(echo "$CPU_INFO" | grep $(whoami) | sed "s/[^ 0-9\.]//g" | awk "{sum+
 
 CPU_PERCENT="$(echo "$CPU_SYS $CPU_USER" | awk '{printf "%.0f\n", ($1 + $2)*100}')"
 
-# Format with fixed width (always 3 characters: right-aligned percentage)
-sketchybar --set $NAME label="$(printf "%3s%%" "$CPU_PERCENT")"
+# Format with fixed width and append separator
+sketchybar --set $NAME label="$(printf "%3s%% ｜" "$CPU_PERCENT")"

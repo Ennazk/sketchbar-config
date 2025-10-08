@@ -21,9 +21,7 @@ esac
 
 if [[ $CHARGING != "" ]]; then
   ICON="􀢋"
-  SEPARATOR=" ｜ "
-  STATUS="Charging"
-  sketchybar --set $NAME icon="$ICON" label="$(printf "%s%s%s " "$PERCENTAGE%" "$SEPARATOR" "$STATUS")"
+  sketchybar --set $NAME icon="$ICON" label="$(printf "%s%%" "$PERCENTAGE")"
 else
-  sketchybar --set $NAME icon="$ICON" label="$(printf "%s%% " "$PERCENTAGE")"
+  sketchybar --set $NAME icon="$ICON" label="$(printf "%s%%" "$PERCENTAGE")"
 fi

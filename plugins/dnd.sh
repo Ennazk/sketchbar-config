@@ -23,11 +23,14 @@ if [ "$DND_VISIBLE" = "1" ]; then
     if [ "$FOCUS_ACTIVE" = "1" ]; then
         # Focus mode is likely active - bright white
         sketchybar --set $NAME drawing=on icon.color=0xffffffff
+        sketchybar --set dnd_sep drawing=on
     else
         # Focus modes enabled but not active - dimmed
         sketchybar --set $NAME drawing=on icon.color=0x50ffffff
+        sketchybar --set dnd_sep drawing=off
     fi
 else
     # Focus modes not enabled in Control Center - hide completely
     sketchybar --set $NAME drawing=off
+    sketchybar --set dnd_sep drawing=off
 fi

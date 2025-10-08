@@ -1,8 +1,7 @@
 #!/bin/bash
 
 sketchybar --add item calendar right \
-           --set calendar icon=􀧞  \
-                          icon.color=0xffffffff \
+           --set calendar icon.drawing=off \
                           label.color=0xffffffff \
                           background.drawing=off \
                           update_freq=1 \

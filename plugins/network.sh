@@ -62,14 +62,14 @@ if [ -n "$stats" ]; then
             down_speed=$(format_speed $speed_in)
             up_speed=$(format_speed $speed_out)
             
-            # Update sketchybar with fixed-width format
-            sketchybar --set $NAME label="↓$down_speed ↑$up_speed"
+            # Update sketchybar with fixed-width format and trailing separator
+            sketchybar --set $NAME label="↓$down_speed ↑$up_speed ｜"
         else
-            sketchybar --set $NAME label="↓0.0B/s ↑0.0B/s"
+            sketchybar --set $NAME label="↓0.0B/s ↑0.0B/s ｜"
         fi
     else
         # First run, just show 0
-        sketchybar --set $NAME label="↓0.0B/s ↑0.0B/s"
+        sketchybar --set $NAME label="↓0.0B/s ↑0.0B/s ｜"
     fi
     
     # Save current values to cache

@@ -5,7 +5,7 @@ sketchybar --add item battery right \
                          icon.color=0xffffffff \
                          label.color=0xffffffff \
                          label.font="SF Mono:Semibold:15.0" \
-                         label.width=50 \
+                         label.width=0 \
                          padding_left=0 \
                          padding_right=0 \
                          background.drawing=off \

@@ -28,5 +28,5 @@ else
     RAM_PERCENTAGE=$((100 - MEMORY_PRESSURE))
 fi
 
-# Update the item
-sketchybar --set $NAME label="$(printf "%3s%%" "$RAM_PERCENTAGE")"
+# Update the item with trailing separator
+sketchybar --set $NAME label="$(printf "%3s%% ｜" "$RAM_PERCENTAGE")"
