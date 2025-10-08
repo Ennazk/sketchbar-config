@@ -9,7 +9,7 @@ TIME=$(date "+%I:%M:%S %p")
 # Get EST time with seconds and timezone
 EST_TIME=$(TZ="America/New_York" date "+%I:%M:%S %p EST")
 
-# Use light vertical bar
-SEPARATOR="︳"
+# Use a smaller/thinner separator that looks good at larger font size
+SEPARATOR="·"
 
 sketchybar --set $NAME label="$DATE_FORMATTED $SEPARATOR $EST_TIME $SEPARATOR $TIME"

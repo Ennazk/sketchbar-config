@@ -2,25 +2,66 @@
 
 # Combined right-side items with consistent styling and spacing
 
-# Calendar (date and times)
-sketchybar --add item calendar right \
-           --set calendar icon.drawing=off \
-                          label.color=0xffffffff \
-                          background.drawing=off \
-                          update_freq=1 \
-                          padding_left=0 \
-                          padding_right=0 \
-                          script="$PLUGIN_DIR/calendar.sh"
+
+# Local Time
+sketchybar --add item local_time right \
+           --set local_time icon.drawing=off \
+                            label.color=0xffffffff \
+                            background.drawing=off \
+                            update_freq=1 \
+                            padding_left=0 \
+                            padding_right=6 \
+                            script="$PLUGIN_DIR/local_time.sh"
 
 # Separator 1 (between calendar and volume)
 sketchybar --add item sep1 right \
            --set sep1 icon="︳" \
                        icon.color=0xffffffff \
-                       icon.font="Menlo:Bold:15.0" \
+                       icon.font="Menlo:Bold:10.0" \
                        label.drawing=off \
                        background.drawing=off \
-                       padding_left=0 \
+                       padding_left=8 \
                        padding_right=12
+
+# EST Time
+sketchybar --add item est_time right \
+           --set est_time icon.drawing=off \
+                          label.color=0xffffffff \
+                          background.drawing=off \
+                          update_freq=1 \
+                          padding_left=0 \
+                          padding_right=0 \
+                          script="$PLUGIN_DIR/est_time.sh"
+
+# EST-Local Time Separator
+sketchybar --add item time_sep right \
+           --set time_sep icon="︳" \
+                          icon.color=0xffffffff \
+                          icon.font="Menlo:Bold:10.0" \
+                          label.drawing=off \
+                          background.drawing=off \
+                          padding_left=10 \
+                          padding_right=12
+
+# Date
+sketchybar --add item date right \
+           --set date icon.drawing=off \
+                      label.color=0xffffffff \
+                      background.drawing=off \
+                      update_freq=1 \
+                      padding_left=0 \
+                      padding_right=0 \
+                      script="$PLUGIN_DIR/date.sh"
+
+# Date-Time Separator
+sketchybar --add item date_sep right \
+           --set date_sep icon="︳" \
+                          icon.color=0xffffffff \
+                          icon.font="Menlo:Bold:10.0" \
+                          label.drawing=off \
+                          background.drawing=off \
+                          padding_left=0 \
+                          padding_right=12
 
 # Volume
 sketchybar --add item volume right \
@@ -38,7 +79,7 @@ sketchybar --add item volume right \
 sketchybar --add item sep2 right \
            --set sep2 icon="︳" \
                        icon.color=0xffffffff \
-                       icon.font="Menlo:Bold:15.0" \
+                       icon.font="Menlo:Bold:10.0" \
                        label.drawing=off \
                        background.drawing=off \
                        padding_left=0 \
@@ -61,7 +102,7 @@ sketchybar --add item battery right \
 sketchybar --add item dnd_sep right \
            --set dnd_sep icon="︳" \
                          icon.color=0xffffffff \
-                         icon.font="Menlo:Bold:15.0" \
+                         icon.font="Menlo:Bold:10.0" \
                          label.drawing=off \
                          background.drawing=off \
                          padding_left=8 \
@@ -81,3 +122,26 @@ sketchybar --add item dnd right \
                      script="$PLUGIN_DIR/dnd.sh" \
                      update_freq=5 \
            --subscribe dnd front_app_switched
+
+
+# CPU Separator
+sketchybar --add item cpu_sep right \
+           --set cpu_sep icon="︳" \
+                         icon.color=0xffffffff \
+                         icon.font="Menlo:Bold:10.0" \
+                         label.drawing=off \
+                         background.drawing=off \
+                         padding_left=10 \
+                         padding_right=10
+
+# CPU Monitor
+sketchybar --add item cpu right \
+           --set cpu icon="􀧓" \
+                     icon.color=0xffffffff \
+                     icon.padding_right=8 \
+                     label.color=0xffffffff \
+                     padding_left=0 \
+                     padding_right=0 \
+                     background.drawing=off \
+                     script="$PLUGIN_DIR/cpu.sh" \
+                     update_freq=2
