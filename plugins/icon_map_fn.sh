@@ -424,7 +424,16 @@ function icon_map() {
   "Nova")
     icon_result=":nova:"
     ;;
-  "WhatsApp")
+  "ChatGPT" | "ChatGPT Classic")
+    icon_result=":openai:"
+    ;;
+  "TradingView")
+    icon_result=":trading_view:"
+    ;;
+  "HMA VPN")
+    icon_result=":vpn:"
+    ;;
+  "WhatsApp" | "‎WhatsApp")
     icon_result=":whats_app:"
     ;;
   *)
@@ -436,4 +445,3 @@ function icon_map() {
 icon_map "$1"
 
 echo "$icon_result"
-

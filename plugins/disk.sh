@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Get disk usage for root filesystem
-DISK_USAGE=$(df -h / | awk 'NR==2 {print $5}' | sed 's/%//')
+# Data volume, not / — on APFS the sealed system volume reports a misleading number
+DISK_PERCENT=$(df -H /System/Volumes/Data | awk 'NR==2 {gsub(/%/,"",$5); print $5}')
 
-# Update the item with fixed width formatting and trailing separator
-sketchybar --set $NAME label="$(printf "%3s%% ｜" "$DISK_USAGE")"
+# Format with leading zero for consistent width
+sketchybar --set $NAME label="$(printf "%02d%%" "$DISK_PERCENT")"

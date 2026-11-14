@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Get EST time with seconds and timezone
-EST_TIME=$(TZ="America/New_York" date "+%I:%M:%S %p EST")
+# Get New York time with seconds
+NY_TIME=$(TZ="America/New_York" date "+%I:%M:%S %p NY")
 
-sketchybar --set $NAME label="$EST_TIME"
+sketchybar --set $NAME label="$NY_TIME"

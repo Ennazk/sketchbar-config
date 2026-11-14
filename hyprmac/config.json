@@ -1,0 +1,567 @@
+{
+  "animateFocusIndicator": true,
+  "gapSize": 8,
+  "focusBracketStyle": "rounded",
+  "chromeFadeDurationSec": 0.1,
+  "keepCursorOnWorkspaceSwitch": false,
+  "dimInactiveWindows": true,
+  "outerPadding": 8,
+  "keybinds": [
+    {
+      "keyCode": 123,
+      "action": {
+        "focusDirection": {
+          "_0": "left"
+        }
+      },
+      "modifiers": 1
+    },
+    {
+      "keyCode": 124,
+      "action": {
+        "focusDirection": {
+          "_0": "right"
+        }
+      },
+      "modifiers": 1
+    },
+    {
+      "keyCode": 126,
+      "action": {
+        "focusDirection": {
+          "_0": "up"
+        }
+      },
+      "modifiers": 1
+    },
+    {
+      "keyCode": 125,
+      "action": {
+        "focusDirection": {
+          "_0": "down"
+        }
+      },
+      "modifiers": 1
+    },
+    {
+      "keyCode": 123,
+      "action": {
+        "swapDirection": {
+          "_0": "left"
+        }
+      },
+      "modifiers": 3
+    },
+    {
+      "keyCode": 124,
+      "action": {
+        "swapDirection": {
+          "_0": "right"
+        }
+      },
+      "modifiers": 3
+    },
+    {
+      "keyCode": 126,
+      "modifiers": 3,
+      "action": {
+        "swapDirection": {
+          "_0": "up"
+        }
+      }
+    },
+    {
+      "keyCode": 125,
+      "modifiers": 3,
+      "action": {
+        "swapDirection": {
+          "_0": "down"
+        }
+      }
+    },
+    {
+      "keyCode": 18,
+      "modifiers": 1,
+      "action": {
+        "switchDesktop": {
+          "_0": 1
+        }
+      }
+    },
+    {
+      "keyCode": 18,
+      "modifiers": 3,
+      "action": {
+        "moveToDesktop": {
+          "_0": 1
+        }
+      }
+    },
+    {
+      "keyCode": 19,
+      "modifiers": 1,
+      "action": {
+        "switchDesktop": {
+          "_0": 2
+        }
+      }
+    },
+    {
+      "keyCode": 19,
+      "modifiers": 3,
+      "action": {
+        "moveToDesktop": {
+          "_0": 2
+        }
+      }
+    },
+    {
+      "action": {
+        "switchDesktop": {
+          "_0": 3
+        }
+      },
+      "modifiers": 1,
+      "keyCode": 20
+    },
+    {
+      "action": {
+        "moveToDesktop": {
+          "_0": 3
+        }
+      },
+      "modifiers": 3,
+      "keyCode": 20
+    },
+    {
+      "action": {
+        "switchDesktop": {
+          "_0": 4
+        }
+      },
+      "modifiers": 1,
+      "keyCode": 21
+    },
+    {
+      "action": {
+        "moveToDesktop": {
+          "_0": 4
+        }
+      },
+      "modifiers": 3,
+      "keyCode": 21
+    },
+    {
+      "action": {
+        "switchDesktop": {
+          "_0": 5
+        }
+      },
+      "modifiers": 1,
+      "keyCode": 23
+    },
+    {
+      "action": {
+        "moveToDesktop": {
+          "_0": 5
+        }
+      },
+      "modifiers": 3,
+      "keyCode": 23
+    },
+    {
+      "action": {
+        "switchDesktop": {
+          "_0": 6
+        }
+      },
+      "modifiers": 1,
+      "keyCode": 22
+    },
+    {
+      "action": {
+        "moveToDesktop": {
+          "_0": 6
+        }
+      },
+      "modifiers": 3,
+      "keyCode": 22
+    },
+    {
+      "action": {
+        "switchDesktop": {
+          "_0": 7
+        }
+      },
+      "modifiers": 1,
+      "keyCode": 26
+    },
+    {
+      "action": {
+        "moveToDesktop": {
+          "_0": 7
+        }
+      },
+      "modifiers": 3,
+      "keyCode": 26
+    },
+    {
+      "action": {
+        "switchDesktop": {
+          "_0": 8
+        }
+      },
+      "modifiers": 1,
+      "keyCode": 28
+    },
+    {
+      "action": {
+        "moveToDesktop": {
+          "_0": 8
+        }
+      },
+      "modifiers": 3,
+      "keyCode": 28
+    },
+    {
+      "action": {
+        "switchDesktop": {
+          "_0": 9
+        }
+      },
+      "keyCode": 25,
+      "modifiers": 1
+    },
+    {
+      "action": {
+        "moveToDesktop": {
+          "_0": 9
+        }
+      },
+      "keyCode": 25,
+      "modifiers": 3
+    },
+    {
+      "action": {
+        "switchDesktop": {
+          "_0": 10
+        }
+      },
+      "keyCode": 29,
+      "modifiers": 1
+    },
+    {
+      "action": {
+        "moveToDesktop": {
+          "_0": 10
+        }
+      },
+      "keyCode": 29,
+      "modifiers": 3
+    },
+    {
+      "action": {
+        "moveToWorkspaceAndFollow": {
+          "_0": 1
+        }
+      },
+      "keyCode": 18,
+      "modifiers": 11
+    },
+    {
+      "action": {
+        "moveToWorkspaceAndFollow": {
+          "_0": 2
+        }
+      },
+      "keyCode": 19,
+      "modifiers": 11
+    },
+    {
+      "action": {
+        "moveToWorkspaceAndFollow": {
+          "_0": 3
+        }
+      },
+      "keyCode": 20,
+      "modifiers": 11
+    },
+    {
+      "action": {
+        "moveToWorkspaceAndFollow": {
+          "_0": 4
+        }
+      },
+      "keyCode": 21,
+      "modifiers": 11
+    },
+    {
+      "action": {
+        "moveToWorkspaceAndFollow": {
+          "_0": 5
+        }
+      },
+      "keyCode": 23,
+      "modifiers": 11
+    },
+    {
+      "action": {
+        "moveToWorkspaceAndFollow": {
+          "_0": 6
+        }
+      },
+      "keyCode": 22,
+      "modifiers": 11
+    },
+    {
+      "action": {
+        "moveToWorkspaceAndFollow": {
+          "_0": 7
+        }
+      },
+      "keyCode": 26,
+      "modifiers": 11
+    },
+    {
+      "action": {
+        "moveToWorkspaceAndFollow": {
+          "_0": 8
+        }
+      },
+      "keyCode": 28,
+      "modifiers": 11
+    },
+    {
+      "keyCode": 25,
+      "modifiers": 11,
+      "action": {
+        "moveToWorkspaceAndFollow": {
+          "_0": 9
+        }
+      }
+    },
+    {
+      "keyCode": 29,
+      "modifiers": 11,
+      "action": {
+        "moveToWorkspaceAndFollow": {
+          "_0": 10
+        }
+      }
+    },
+    {
+      "keyCode": 123,
+      "modifiers": 9,
+      "action": {
+        "moveWorkspaceToMonitor": {
+          "_0": "left"
+        }
+      }
+    },
+    {
+      "keyCode": 124,
+      "modifiers": 9,
+      "action": {
+        "moveWorkspaceToMonitor": {
+          "_0": "right"
+        }
+      }
+    },
+    {
+      "keyCode": 126,
+      "modifiers": 9,
+      "action": {
+        "moveWorkspaceToMonitor": {
+          "_0": "up"
+        }
+      }
+    },
+    {
+      "keyCode": 125,
+      "modifiers": 9,
+      "action": {
+        "moveWorkspaceToMonitor": {
+          "_0": "down"
+        }
+      }
+    },
+    {
+      "keyCode": 123,
+      "modifiers": 11,
+      "action": {
+        "resizeDirection": {
+          "_0": "left"
+        }
+      }
+    },
+    {
+      "keyCode": 124,
+      "modifiers": 11,
+      "action": {
+        "resizeDirection": {
+          "_0": "right"
+        }
+      }
+    },
+    {
+      "keyCode": 126,
+      "modifiers": 11,
+      "action": {
+        "resizeDirection": {
+          "_0": "up"
+        }
+      }
+    },
+    {
+      "keyCode": 125,
+      "modifiers": 11,
+      "action": {
+        "resizeDirection": {
+          "_0": "down"
+        }
+      }
+    },
+    {
+      "keyCode": 1,
+      "modifiers": 9,
+      "action": {
+        "saveLayout": {}
+      }
+    },
+    {
+      "keyCode": 15,
+      "modifiers": 9,
+      "action": {
+        "restoreLayout": {}
+      }
+    },
+    {
+      "action": {
+        "retileAll": {}
+      },
+      "modifiers": 1,
+      "keyCode": 15
+    },
+    {
+      "action": {
+        "toggleFloating": {}
+      },
+      "modifiers": 1,
+      "keyCode": 17
+    },
+    {
+      "action": {
+        "toggleSplit": {}
+      },
+      "modifiers": 1,
+      "keyCode": 38
+    },
+    {
+      "action": {
+        "showKeybinds": {}
+      },
+      "modifiers": 1,
+      "keyCode": 40
+    },
+    {
+      "action": {
+        "showWorkspaceOverview": {}
+      },
+      "modifiers": 1,
+      "keyCode": 31
+    },
+    {
+      "action": {
+        "toggleTiling": {}
+      },
+      "modifiers": 1,
+      "keyCode": 35
+    },
+    {
+      "action": {
+        "toggleMaximize": {}
+      },
+      "modifiers": 1,
+      "keyCode": 3
+    },
+    {
+      "action": {
+        "focusFloating": {}
+      },
+      "modifiers": 3,
+      "keyCode": 17
+    },
+    {
+      "action": {
+        "toggleScratchpad": {}
+      },
+      "modifiers": 1,
+      "keyCode": 1
+    },
+    {
+      "action": {
+        "moveToScratchpad": {}
+      },
+      "modifiers": 3,
+      "keyCode": 1
+    },
+    {
+      "action": {
+        "closeWindow": {}
+      },
+      "modifiers": 1,
+      "keyCode": 13
+    },
+    {
+      "action": {
+        "cycleWorkspace": {
+          "_0": 1
+        }
+      },
+      "modifiers": 1,
+      "keyCode": 48
+    },
+    {
+      "keyCode": 48,
+      "modifiers": 3,
+      "action": {
+        "cycleWorkspace": {
+          "_0": -1
+        }
+      }
+    },
+    {
+      "keyCode": 50,
+      "modifiers": 1,
+      "action": {
+        "focusMenuBar": {}
+      }
+    },
+    {
+      "keyCode": 36,
+      "modifiers": 1,
+      "action": {
+        "launchApp": {
+          "bundleID": "com.apple.Terminal"
+        }
+      }
+    }
+  ],
+  "showFocusBorder": false,
+  "focusBracketLength": 15,
+  "dimIntensity": 0.135,
+  "version": 2,
+  "hyprKey": "leftOption",
+  "enabled": true,
+  "mouseHoverPollHz": 120,
+  "overlayAppearance": "system",
+  "showMenuBarIndicator": true,
+  "focusFollowsMouse": true,
+  "restoreLayoutOnLaunch": false,
+  "scratchpadTileByDefault": true,
+  "scratchpadRegionInset": 0.1,
+  "excludedBundleIDs": [
+    "com.apple.FaceTime",
+    "com.apple.systempreferences"
+  ]
+}
